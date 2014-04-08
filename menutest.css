@@ -1,0 +1,307 @@
+/* 加載csshover3.htc，解決IE6沒有li:hover擬類的問題 */
+002
+* html body {
+003
+    behavior:url("csshover3.htc");
+004
+}
+005
+/* ---------- 大小與定位 ---------- */
+006
+#menu {
+007
+    /* 選單大小 */
+008
+    width:600px;
+009
+    height:30px;
+010
+}
+011
+#menu ul {
+012
+    /* 取消ul樣式符號 */
+013
+    list-style-type:none;
+014
+    /* 重設ul邊界與留白為零 */
+015
+    margin:0;
+016
+    padding:0;
+017
+    /* 內有浮動元件時，需設overflow才會自動調整大小 */
+018
+    overflow:auto;
+019
+}
+020
+* html #menu ul {
+021
+    /* 解決IE6不理overflow問題，直接指定高度 */
+022
+    height:30px;
+023
+}
+024
+#menu ul li {
+025
+    /* 利用float讓第一層li水平排列 */
+026
+    float:left;
+027
+}
+028
+/* 解決IE6條列式餘白問題*/
+029
+* html #menu ul li {
+030
+    display:inline;
+031
+}
+032
+#menu ul li a {
+033
+    /* 將a改為區塊元件，以便指定寬高 */
+034
+    display:block;
+035
+    /* 這邊也要設float，否則IE6會以100%寬度顯示 */
+036
+    float:left;
+037
+    /* 固定高度 */
+038
+    height:30px;
+039
+    width: 100px;
+040
+    text-align: center;
+041
+}
+042
+#menu ul li ul {
+043
+    /* 讓第二層ul跳脫文件流以利定位 */
+044
+    position:absolute;
+045
+    /* 固定寬度 */
+046
+    width:100px;
+047
+    /* 避免出現捲軸 */
+048
+    overflow:visible;
+049
+    /* 讓ul與母階層li相同位置 */
+050
+    clear:left;
+051
+    margin-top: 30px;
+052
+    margin-right: 0;
+053
+    margin-bottom: 0;
+054
+    margin-left: 0;
+055
+}
+056
+/* 修正IE7絕對定位差異 */
+057
+*:first-child+html #menu ul li ul {
+058
+    margin-top:0;
+059
+}
+060
+/* 修正IE6絕對定位差異 */
+061
+* html #menu ul li ul {
+062
+    margin-top:0;
+063
+}
+064
+#menu ul li ul li {
+065
+    /* 覆寫繼承自第一層的浮動設定 */
+066
+    float:none;
+067
+    text-align: center;
+068
+}
+069
+#menu ul li ul li a {
+070
+    /* 覆寫繼承自第一層的浮動設定 */
+071
+    float:none;
+072
+    width: 100%;/* 註：display、height、padding繼承第一層的設定 */
+073
+}
+074
+#menu ul li ul li ul {
+075
+    margin-top: -30px;
+076
+    margin-right: 0;
+077
+    margin-bottom: 0;
+078
+    margin-left: 100px;
+079
+    width: 100%;
+080
+}
+081
+/* 修正IE7絕對定位差異 */
+082
+*:first-child+html #menu ul li ul li ul {
+083
+    margin-top:-30px;
+084
+}
+085
+#menu ul li ul li ul li {
+086
+/* width、float繼承第二層，免設定 */
+087
+}
+088
+#menu ul li ul li ul li a {
+089
+/* width、float繼承第二層，免設定 */
+090
+}
+091
+/* ---------- 隱藏與顯示階層 ---------- */
+092
+#menu ul li ul {
+093
+    /* 預先隱藏第二層 */
+094
+    visibility:hidden;
+095
+}
+096
+#menu ul li:hover ul {
+097
+    /* 觸動第一層時，顯示第二層 */
+098
+    visibility:visible;
+099
+}
+100
+#menu ul li:hover ul li ul {
+101
+    /* 顯示第二層時，隱藏第三層，避免同時彈出 */
+102
+    visibility:hidden;
+103
+}
+104
+#menu ul li ul li:hover ul {
+105
+    /* 觸動第二層時，顯示第三層 */
+106
+    visibility:visible;
+107
+}
+108
+#menu ul li ul li:hover ul li ul {
+109
+    /* 顯示第三層時，隱藏第四層，避免同時彈出 */
+110
+    visibility:hidden;
+111
+}
+112
+#menu ul li ul li ul li:hover ul {
+113
+    /* 觸動第三層時，顯示第四層 */
+114
+    visibility:visible;
+115
+}
+116
+/* ---------- 以下為美化用，非必需 ---------- */
+117
+ 
+118
+ 
+119
+/* 預設字體 */
+120
+#menu {
+121
+    font-size:12px;
+122
+    font-family:Arial, Helvetica, sans-serif;
+123
+}
+124
+/* 第一層ul背景色彩與邊框 */
+125
+#menu ul {
+126
+    background:#6f6f6f;
+127
+}
+128
+/* 第一層a字型 */
+129
+#menu ul li a {
+130
+    color:#FFF;
+131
+    text-decoration:none;
+132
+    line-height: 30px;
+133
+}
+134
+/*第二層ul背景色彩與邊框  */
+135
+#menu ul li ul {
+136
+    background:#efefef;
+137
+}
+138
+/* 第二層a字型 */
+139
+#menu ul li ul li a {
+140
+    font-size:12px;
+141
+    color:#333333;
+142
+    text-decoration:none;
+143
+}
+144
+/* 觸動第一層li時，改變背景色 */
+145
+#menu ul li:hover, #menu ul li a:hover {
+146
+    background:#efefef;
+147
+}
+148
+#menu ul li:hover a {
+149
+    color:#333333;
+150
+}
+151
+/* 觸動第二層以上li時改變背景色 */
+152
+#menu ul li ul li:hover, #menu ul li ul li a:hover {
+153
+    background:#dfdfdf;
+154
+}

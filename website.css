@@ -1,0 +1,88 @@
+* { background-color : #FFFFCC ;}
+* { background-position: center; margin: 1em;}
+.myButton {background-color: gray;}
+
+
+.btn-about, .btn-travel, .btn-recipies, .btn-photography, .btn-journal, .btn-art, .btn-life{
+  font-size: 16px;
+  padding: 0.5em 1em;
+  outline: 0;
+  color: #ccc;
+  padding-left:  1em;
+  padding-right: 1em;
+}
+
+.btn-about{
+  background: #CD5C5C;
+}
+
+.btn-travel{
+  background: #ffa500;
+}
+
+.btn-recipies{
+  background: #008080;
+}
+
+.btn-photography{
+  background: #4169E1;
+}
+
+.btn-journal{
+  background:  #483D8B;
+}
+
+.btn-art{
+  background: #8B008B;
+}
+
+
+.btn-life{
+  background: #333;
+}
+
+
+.image-sonia{
+	position: relative;
+}
+
+
+
+/*選單列表*/
+.nav>li{
+  display: inline-block;
+  position: relative;
+  border: 1px solid red;
+  border-right: 1px solid red;
+  padding: 1em 1em;
+  background: #CD5C5C;
+}
+
+
+.submenu{
+  position: absolute;
+  display: none;
+
+  /* 外觀樣式 */
+  left: -1px; top: 100%; width: 100%;
+  text-align: center;
+  background: #CD5C5C;
+  border: 1px solid green;
+}
+
+.nav>li:hover .submenu{
+  display: block;
+}
+
+.submenu li{
+  padding: 1em 1;
+  color: red;
+  cursor: pointer;
+}
+/* 外觀樣式 */
+.submenu li:hover{
+  color: white;
+}
+
+
+
